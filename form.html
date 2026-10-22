@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulir Pendaftaran</title>
+  <style>
+
+    :root {
+      --warna-utama: #0f766e;
+      --warna-utama-gelap: #115e59;
+      --latar: #eef4f3;
+      --kartu: #ffffff;
+      --teks: #1f2937;
+      --teks-redup: #6b7280;
+      --garis: #d1d5db;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 40px 16px;
+      background: var(--latar);
+      color: var(--teks);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+    }
+
+    form {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--kartu);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(15, 118, 110, 0.12);
+      border-top: 6px solid var(--warna-utama);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 1.75rem;
+      color: var(--warna-utama-gelap);
+    }
+
+    .subjudul {
+      margin: 0 0 24px;
+      color: var(--teks-redup);
+    }
+
+    .field { margin-bottom: 18px; }
+
+    label, .judul-grup {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--garis);
+      border-radius: 8px;
+      font: inherit;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    textarea { min-height: 90px; resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--warna-utama);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+    }
+
+    ::placeholder { color: #9ca3af; }
+
+    .pilihan {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+
+    .pilihan label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--warna-utama);
+    }
+
+    .tombol {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    button {
+      padding: 11px 24px;
+      border: none;
+      border-radius: 8px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button[type="submit"] { background: var(--warna-utama); color: #fff; }
+    button[type="submit"]:hover { background: var(--warna-utama-gelap); }
+
+    button[type="reset"] { background: #e5e7eb; color: var(--teks); }
+    button[type="reset"]:hover { background: #d1d5db; }
+
+    button:active { transform: scale(0.97); }
+
+    @media (min-width: 600px) {
+      .baris {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form action="#" method="post">
+    <h1>Formulir Pendaftaran</h1>
+    <p class="subjudul">Isi data diri kamu dengan lengkap.</p>
+
+    <div class="field">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama" required>
+    </div>
+
+    <div class="baris">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+    </div>
+
+    <div class="baris">
+      <div class="field">
+        <label for="umur">Umur</label>
+        <input type="number" id="umur" name="umur" min="1" max="100">
+      </div>
+      <div class="field">
+        <label for="lahir">Tanggal Lahir</label>
+        <input type="date" id="lahir" name="lahir">
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="judul-grup">Jenis Kelamin</span>
+      <div class="pilihan">
+        <label><input type="radio" name="gender" value="laki-laki"> Laki-laki</label>
+        <label><input type="radio" name="gender" value="perempuan"> Perempuan</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="judul-grup">Hobi</span>
+      <div class="pilihan">
+        <label><input type="checkbox" name="hobi" value="coding"> Coding</label>
+        <label><input type="checkbox" name="hobi" value="gaming"> Gaming</label>
+        <label><input type="checkbox" name="hobi" value="olahraga"> Olahraga</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="jurusan">Jurusan</label>
+      <select id="jurusan" name="jurusan">
+        <option value="">-- Pilih Jurusan --</option>
+        <option value="ti">Teknik Informatika</option>
+        <option value="si">Sistem Informasi</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="alamat">Alamat</label>
+      <textarea id="alamat" name="alamat" placeholder="Masukkan alamat"></textarea>
+    </div>
+
+    <div class="baris">
+      <div class="field">
+        <label for="foto">Foto</label>
+        <input type="file" id="foto" name="foto">
+      </div>
+      <div class="field">
+        <label for="website">Website</label>
+        <input type="url" id="website" name="website" placeholder="https://example.com">
+      </div>
+    </div>
+
+    <div class="tombol">
+      <button type="submit">Kirim</button>
+      <button type="reset">Reset</button>
+    </div>
+  </form>
+
+</body>
+</html>

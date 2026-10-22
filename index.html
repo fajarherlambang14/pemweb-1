@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website Fajar Herlambang</title>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; font-family: "Segoe UI", Arial, sans-serif; }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: #1f3864;
+      font-size: 14px;
+    }
+    .menu a, .menu button {
+      color: #fff;
+      background: none;
+      border: none;
+      font: inherit;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .menu a:hover, .menu button:hover { background: rgba(255,255,255,.2); }
+    .menu a.aktif { background: #f07a3a; font-weight: 600; }
+    .menu button:disabled { opacity: .4; cursor: not-allowed; background: none; }
+    .pemisah { width: 1px; height: 20px; background: rgba(255,255,255,.35); margin: 0 6px; }
+
+    iframe { flex: 1; width: 100%; border: none; background: #fff; }
+  </style>
+</head>
+<body>
+
+  <nav class="menu">
+    <button type="button" id="btnMundur" disabled>← Kembali</button>
+    <button type="button" id="btnMaju" disabled>Maju →</button>
+    <span class="pemisah"></span>
+    <a href="profil.html" target="isi" class="aktif">Profil</a>
+    <a href="aboutme.html" target="isi">Tentang Saya</a>
+    <a href="educations.html" target="isi">Riwayat Pendidikan</a>
+    <a href="table2.html" target="isi">Jadwal Laboratorium</a>
+    <a href="table3.html" target="isi">Jadwal Perkuliahan</a>
+    <a href="Web3.html" target="isi">Laporan Nilai</a>
+    <a href="form.html" target="isi">Formulir Pendaftaran</a>
+    <a href="hobbies.html" target="isi">Hobi</a>
+  </nav>
+
+  <iframe name="isi" id="frame" src="profil.html" title="Isi halaman"></iframe>
+
+  <script>
+    var frame = document.getElementById("frame");
+    var btnMundur = document.getElementById("btnMundur");
+    var btnMaju = document.getElementById("btnMaju");
+    var links = document.querySelectorAll(".menu a");
+
+  
+    var riwayat = ["profil.html"];
+    var posisi = 0;
+
+    function tandaiAktif(url) {
+      links.forEach(function (a) {
+        a.classList.toggle("aktif", a.getAttribute("href") === url);
+      });
+    }
+
+    function perbarui() {
+      btnMundur.disabled = posisi <= 0;
+      btnMaju.disabled = posisi >= riwayat.length - 1;
+      tandaiAktif(riwayat[posisi]);
+    }
+
+    function buka(url) {
+      frame.src = url;
+      tandaiAktif(url);
+    }
+
+    links.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var url = a.getAttribute("href");
+        if (url === riwayat[posisi]) return;
+        riwayat = riwayat.slice(0, posisi + 1);
+        riwayat.push(url);
+        posisi++;
+        buka(url);
+        perbarui();
+      });
+    });
+
+    btnMundurb.addEventListener("click", function () {
+      if (posisi > 0) { posisi--; buka(riwayat[posisi]); perbarui(); }
+    });
+
+    btnMaju.addEventListener("click", function () {
+      if (posisi < riwayat.length - 1) { posisi++; buka(riwayat[posisi]); perbarui(); }
+    });
+
+    perbarui();
+  </script>
+
+</body>
+</html>

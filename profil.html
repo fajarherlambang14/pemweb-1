@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profil Mahasiswa</title>
+  <style>
+    :root {
+      --bg: #eef2f7;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #5b6577;
+      --blue: #2f6fe4;
+      --orange: #f07a3a;
+      --line: #d9e0ea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 40px 16px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    .kartu {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--orange);
+      border-radius: 10px;
+      padding: 28px 32px 32px;
+      box-shadow: 0 6px 20px rgba(31, 41, 55, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: 1.9rem;
+      color: var(--blue);
+    }
+
+    .foto {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--card);
+      outline: 3px solid var(--blue);
+      margin: 0 auto 24px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    p { margin: 0 0 10px; color: var(--muted); }
+    p strong { color: var(--ink); }
+
+    mark {
+      background: #ffe94d;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 480px) {
+      .kartu { padding: 22px 18px 26px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="kartu">
+    <h1>Profil Mahasiswa</h1>
+
+   
+    <img class="foto" src="fajar.jpg" alt="Foto profil">
+
+    <h2>Data Diri</h2>
+    <p>Nama saya <strong>Fajar Herlambang </strong>. Saya adalah mahasiswa <em>Sistem Informasi</em>.</p>
+    <p>Saya sedang mempelajari <strong>HTML</strong>, CSS, dan JavaScript.</p>
+    <p>(<mark>Target saya adalah menjadi Data engginer</mark>).</p>
+  </main>
+
+</body>
+</html>
